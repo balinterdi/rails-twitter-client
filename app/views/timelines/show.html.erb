@@ -23,8 +23,10 @@
     <div class="small-12 medium-4 large-4 columns medium-pull-8 large-pull-8">
       <div class="panel mini-profile">
         <a href="#">
-          <img src="<%= @user.profile_image_url %>" />
-          <div class="name"><%= @user.name %></div>
+          <%= link_to timeline_path(@user.screen_name) do %>
+            <img src="<%= @user.profile_image_url %>" />
+            <div class="name"><%= @user.name %></div>
+          <% end %>
         </a>
         <div class="row">
           <div class="large-4">
