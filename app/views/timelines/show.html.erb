@@ -9,7 +9,9 @@
           </div>
           <div class="small-9 large-10 columns">
             <p>
-              <strong><%= tweet.user.screen_name %></strong>
+              <%= link_to timeline_path(tweet.user.screen_name) do %>
+                <strong><%= tweet.user.screen_name %></strong>
+              <% end %>
               <%= tweet.text %>
             </p>
           </div>
