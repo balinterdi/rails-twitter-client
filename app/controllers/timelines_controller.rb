@@ -1,14 +1,14 @@
 class TimelinesController < ApplicationController
   def home
-    @user   = cache(cache_key) { user_info }
-    @tweets = cache(cache_key) { home_timeline }
+    @user   = cache(cache_key("user")) { user_info }
+    @tweets = cache(cache_key("tweets")) { home_timeline }
 
     render "show"
   end
 
   def show
-    @user   = cache(cache_key) { user_info }
-    @tweets = cache(cache_key) { user_timeline(params[:id]) }
+    @user   = cache(cache_key("user")) { user_info }
+    @tweets = cache(cache_key("tweets")) { user_timeline(params[:id]) }
   end
 
   private

@@ -30,7 +30,7 @@ private
   def cache_key(*fragments)
     common_fragments = [@oauth_token, params[:controller], params[:action]]
     logger.debug "Cache key: #{fragments.concat(common_fragments)}"
-    fragments.concat(common_fragments)
+    common_fragments.concat(fragments)
   end
 
 end
