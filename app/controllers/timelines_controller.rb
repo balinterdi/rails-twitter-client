@@ -8,7 +8,7 @@ class TimelinesController < ApplicationController
 
   def show
     @user   = cache(cache_key("user")) { user_info }
-    @tweets = cache(cache_key("tweets")) { user_timeline(params[:id]) }
+    @tweets = cache(cache_key("tweets", params[:id])) { user_timeline(params[:id]) }
   end
 
   private
@@ -21,7 +21,7 @@ class TimelinesController < ApplicationController
   end
 
   def user_info
-    cache(cache_key) { twitter_client.user }
+    twitter_client.user
   end
 end
 
